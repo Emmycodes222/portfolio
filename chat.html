@@ -1,0 +1,252 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Professional front-end developer portfolio website"/>
+  <title>Emmanuel Unachukwu | Front-End Developer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"/>
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+
+  <!-- =========================
+       HEADER / NAVIGATION
+  ========================== -->
+  <header class="header">
+    <nav class="navbar container">
+      <a href="#" class="logo">Emmanuel.</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" />
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Open navigation menu">
+        <span></span>
+      </label>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+  <main>
+
+    <section id="hero" class="hero">
+      <div class="container hero-content">
+        <div class="hero-text fade-in">
+          <p class="hero-subtitle">Front-End Developer</p>
+
+          <h1>
+            Building clean and modern web experiences.
+          </h1>
+
+          <p class="hero-description">
+            I create responsive, accessible, and user-focused websites using
+            modern front-end technologies and thoughtful design principles.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn primary-btn">
+              View Projects
+            </a>
+            <a href="#contact" class="btn secondary-btn">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="./images/port  pics.jpg"
+            alt="Developer portrait"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-subtitle">About Me</p>
+          <h2>Passionate About Creating Great User Experiences</h2>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>My name is Unachukwu Emmanuel, a front-end developer based in Lagos, Nigeria. With a strong passion for crafting engaging and user-friendly web experiences, I specialize in turning ideas into polished digital products that work seamlessly across devices.</p>
+            <p>
+              My approach combines clean code, modern UI principles, and
+              performance optimization to create websites that are both
+              functional and beautiful.
+            </p>
+          </div>
+
+          <ul class="skills-grid">
+            <li class="skill-card">HTML5</li>
+            <li class="skill-card">CSS3</li>
+            <li class="skill-card">Responsive Design</li>
+            <li class="skill-card">Flexbox & Grid</li>
+            <li class="skill-card">Accessibility</li>
+            <li class="skill-card">UI/UX Design</li>
+            <li class="skill-card">WordPress</li>
+            <li class="skill-card">React</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROJECTS SECTION
+    ========================== -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-subtitle">Portfolio</p>
+          <h2>Featured Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project Card -->
+          <article class="project-card">
+            <img
+              src="./images/Screenshot hotel.jpg"
+              alt="hotel project"
+            />
+            <div class="project-content">
+              <h3>hotel website</h3>
+              <p>
+                A responsive hotel website with a clean design, showcasing rooms, amenities, and an easy booking process.
+              </p>
+              <a href="https://www.excellenteagles.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card -->
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+              alt="Portfolio website project"
+            />
+
+            <div class="project-content">
+              <h3>Creative Portfolio</h3>
+
+              <p>
+                A minimalist portfolio website focused on performance,
+                accessibility, and smooth user interactions.
+              </p>
+
+              <a href="#" class="project-link">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card -->
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
+              alt="E-commerce website project"
+            />
+
+            <div class="project-content">
+              <h3>E-Commerce Landing Page</h3>
+
+              <p>
+                A modern product landing page optimized for conversions and
+                mobile shopping experiences.
+              </p>
+
+              <a href="#" class="project-link">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card -->
+          <article class="project-card">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+              alt="Team collaboration platform"
+            />
+
+            <div class="project-content">
+              <h3>Team Collaboration UI</h3>
+
+              <p>
+                A sleek interface concept for team communication and project
+                management tools.
+              </p>
+
+              <a href="#" class="project-link">
+                View Project
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+    <section id="contact" class="contact section">
+      <div class="container contact-content">
+        <div class="section-heading">
+          <p class="section-subtitle">Contact</p>
+          <h2>Let's Work Together</h2>
+        </div>
+
+        <p class="contact-text">
+          I'm open to freelance opportunities, collaborations, and full-time
+          roles. Feel free to reach out.
+        </p>
+
+        <a href="mailto:eunachukwu20@gmail.com" class="btn primary-btn">
+          eunachukwu20@gmail.com
+        </a>
+       <a href="https://wa.me/2348147374806" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; <span class="footer-year">2026</span> Emmanuel Unachukwu. All rights reserved.</p>
+
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/emmanuel-unachukwu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/settings/profile" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chat.js" defer></script>
+</body>
+</html>
