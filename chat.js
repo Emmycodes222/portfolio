@@ -1,55 +1,83 @@
-// chat.js
-// Simple JavaScript for portfolio interactivity and mobile menu behavior.
 
-const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.querySelectorAll('.nav-links a');
-const footerYear = document.querySelector('.footer-year');
+document.addEventListener("DOMContentLoaded", () => {
 
-function setFooterYear() {
-  if (!footerYear) return;
-  footerYear.textContent = new Date().getFullYear();
-}
+    //  1. FOOTER YEAR
+  const yearEl = document.getElementById("footerYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-function closeMobileMenu() {
-  if (!navToggle) return;
-  navToggle.checked = false;
-}
 
-function initLinkBehavior() {
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      closeMobileMenu();
+    //  2. CURSOR GLOW  (follows the mouse on desktop)
+  const cursorGlow = document.getElementById("cursorGlow");
+
+  if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
+    document.addEventListener("mousemove", (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top  = `${e.clientY}px`;
     });
-  });
-}
+  }
 
-function initNavigationHighlight() {
-  const sections = document.querySelectorAll('section[id]');
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.3,
-  };
+    //  3. STICKY HEADER — add/remove "scrolled" class
+  const header = document.getElementById("header");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (!link) return;
+  function toggleHeaderStyle() {
+    header.classList.toggle("scrolled", window.scrollY > 30);
+  }
 
-      if (entry.isIntersecting) {
-        navLinks.forEach((navItem) => navItem.classList.remove('active'));
-        link.classList.add('active');
+  window.addEventListener("scroll", toggleHeaderStyle, { passive: true });
+  toggleHeaderStyle(); // run once on load
+
+    //  4. ACTIVE NAV LINK — highlight the current section in the navbar
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll("section[id]");
+
+  function setActiveLink() {
+    const scrollMid = window.scrollY + window.innerHeight / 2;
+
+    let currentId = "";
+
+    sections.forEach((section) => {
+      if (section.offsetTop <= scrollMid) {
+        currentId = section.id;
       }
     });
-  }, observerOptions);
 
-  sections.forEach((section) => observer.observe(section));
-}
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${currentId}`;
+      link.classList.toggle("active", isActive);
+    });
+  }
 
-function init() {
-  setFooterYear();
-  initLinkBehavior();
-  initNavigationHighlight();
-}
+  window.addEventListener("scroll", setActiveLink, { passive: true });
+  setActiveLink(); // run once on load
 
-window.addEventListener('DOMContentLoaded', init);
+    //  5. CLOSE MOBILE MENU ON LINK CLICK
+  const navToggle = document.getElementById("nav-toggle");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navToggle) navToggle.checked = false;
+    });
+  });
+
+    //  6. SCROLL REVEAL — fade elements in as they enter the viewport
+  const revealEls = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target); // animate only once
+        }
+      });
+    },
+    {
+      threshold: 0.15,   // trigger when 15% of the element is visible
+      rootMargin: "0px 0px -40px 0px", // slightly before the bottom edge
+    }
+  );
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+
+});
