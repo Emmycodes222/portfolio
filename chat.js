@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cursorGlow.style.top  = `${e.clientY}px`;
     });
   }
-
-
     //  3. STICKY HEADER — add/remove "scrolled" class
   const header = document.getElementById("header");
 
@@ -49,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", setActiveLink, { passive: true });
-  setActiveLink(); // run once on load
+  setActiveLink(); 
 
     //  5. CLOSE MOBILE MENU ON LINK CLICK
   const navToggle = document.getElementById("nav-toggle");
@@ -68,13 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target); // animate only once
+          revealObserver.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.15,   // trigger when 15% of the element is visible
-      rootMargin: "0px 0px -40px 0px", // slightly before the bottom edge
+      threshold: 0.15,   
+      rootMargin: "0px 0px -40px 0px",
     }
   );
 
