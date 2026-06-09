@@ -1,12 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    //  1. FOOTER YEAR
   const yearEl = document.getElementById("footerYear");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
-    //  2. CURSOR GLOW  (follows the mouse on desktop)
+    
   const cursorGlow = document.getElementById("cursorGlow");
 
   if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
@@ -15,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cursorGlow.style.top  = `${e.clientY}px`;
     });
   }
-    //  3. STICKY HEADER — add/remove "scrolled" class
+   
   const header = document.getElementById("header");
 
   function toggleHeaderStyle() {
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", toggleHeaderStyle, { passive: true });
   toggleHeaderStyle(); // run once on load
 
-    //  4. ACTIVE NAV LINK — highlight the current section in the navbar
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section[id]");
 
