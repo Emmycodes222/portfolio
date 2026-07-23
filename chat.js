@@ -1,19 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  // 1. Auto-update footer year
   const yearEl = document.getElementById("footerYear");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    
-  const cursorGlow = document.getElementById("cursorGlow");
-
-  if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
-    document.addEventListener("mousemove", (e) => {
-      cursorGlow.style.left = `${e.clientX}px`;
-      cursorGlow.style.top  = `${e.clientY}px`;
-    });
-  }
-   
+  // 2. Sticky header background swap on scroll
   const header = document.getElementById("header");
 
   function toggleHeaderStyle() {
@@ -23,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", toggleHeaderStyle, { passive: true });
   toggleHeaderStyle(); // run once on load
 
+  // 3. Highlight the nav link matching the section in view
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section[id]");
 
   function setActiveLink() {
     const scrollMid = window.scrollY + window.innerHeight / 2;
-
     let currentId = "";
 
     sections.forEach((section) => {
@@ -44,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", setActiveLink, { passive: true });
-  setActiveLink(); 
+  setActiveLink();
 
-    //  5. CLOSE MOBILE MENU ON LINK CLICK
+  // 4. Close the mobile menu whenever a nav link is clicked
   const navToggle = document.getElementById("nav-toggle");
 
   navLinks.forEach((link) => {
@@ -55,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    //  6. SCROLL REVEAL — fade elements in as they enter the viewport
+  // 5. Scroll reveal — fade elements in as they enter the viewport
   const revealEls = document.querySelectorAll(".reveal");
 
   const revealObserver = new IntersectionObserver(
@@ -68,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.15,   
+      threshold: 0.15,
       rootMargin: "0px 0px -40px 0px",
     }
   );
