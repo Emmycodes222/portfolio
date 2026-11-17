@@ -170,6 +170,7 @@ button { font: inherit; }
 }
 .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { font: 800 21px/1 var(--font-display); letter-spacing: -.09em; text-decoration: none; }
+.brand span { color: var(--accent); }
 .nav-links { display: flex; align-items: center; gap: clamp(20px, 3.2vw, 42px); margin: 0; padding: 0; list-style: none; }
 .nav-link {
   position: relative;
@@ -451,7 +452,7 @@ button { font: inherit; }
 
 .site-footer { color: #f1f2ed; background: #0c0e0c; }
 .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-block: 35px; }
-.footer-brand { font: 800 14px var(--font-display); letter-spacing: .02em; text-decoration: none; }
+.footer-brand { font: 800 21px/1 var(--font-display); letter-spacing: -.09em; text-decoration: none; }
 .footer-brand > span { color: var(--accent); }
 .footer-brand small { display: block; margin-top: 4px; color: #858b82; font: 600 8px var(--font-display); letter-spacing: .13em; }
 .footer-note { margin: 0; color: #92988f; font-size: 10px; line-height: 1.65; }
